@@ -14,7 +14,7 @@ const useSocket = () => {
     if (!token || !team?._id) return;
 
     if (!socketInstance) {
-      socketInstance = io('http://localhost:5000', {
+      socketInstance = io(import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000', {
         auth: { token },
         transports: ['websocket'],
       });
